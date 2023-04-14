@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class BookList {
+
   public static void main(String[] args) {
 
     List<Book> myBestBook = new ArrayList<>();
@@ -16,11 +17,20 @@ public class BookList {
     myBestBook.add(new Book("Достоевский", "Братья Карамазовы", 680));
     myBestBook.add(new Book("Remark", "No change on the western front", 300));
 
-    Collections.sort(myBestBook);
+    myBestBook.sort((Book o1, Book o2) -> {
+      if (o1.getBookName().compareTo(o2.getBookName()) < 0) {
+        return -1;
+      }
+      if (o1.getBookName().compareTo(o2.getBookName()) > 0) {
+        return 1;
+      }
+      return o1.getAuthor().compareTo(o2.getAuthor());
+    });
 
     for (Book book : myBestBook) {
       System.out.println(book);
     }
+
   }
 
 }
