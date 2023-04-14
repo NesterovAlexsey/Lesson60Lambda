@@ -14,7 +14,9 @@ public class BookList {
     List<Book> myBestBook = new ArrayList<>();
     myBestBook.add(new Book("Remark", "Three friends", 200));
     myBestBook.add(new Book("Stevin Kowi", "7 Effective skills", 300));
-    myBestBook.add(new Book("Достоевский", "Братья Карамазовы", 680));
+    myBestBook.add(new Book("Сарамаго Жозе", "Двойник", 68));
+    myBestBook.add(new Book("Достоевский", "Двойник", 115));
+    myBestBook.add(new Book("Пелевин", "Фудзи", 250));
     myBestBook.add(new Book("Remark", "No change on the western front", 300));
 
     myBestBook.sort((Book o1, Book o2) -> {
@@ -27,10 +29,21 @@ public class BookList {
       return o1.getAuthor().compareTo(o2.getAuthor());
     });
 
+    System.out.println("===========sort BookName=============");
+    printResult(myBestBook);
+    System.out.println();
+
+    Collections.sort(myBestBook);
+
+    System.out.println("===========sort AuthorName===========");
+    printResult(myBestBook);
+  }
+
+  private static void printResult(List<Book> myBestBook) {
     for (Book book : myBestBook) {
       System.out.println(book);
     }
-
   }
-
 }
+
+
