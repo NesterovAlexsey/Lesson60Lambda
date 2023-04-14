@@ -19,12 +19,9 @@ public class BookList {
     myBestBook.add(new Book("Пелевин", "Фудзи", 250));
     myBestBook.add(new Book("Remark", "No change on the western front", 300));
 
-    myBestBook.sort((Book o1, Book o2) -> {
-      if (o1.getBookName().compareTo(o2.getBookName()) < 0) {
-        return -1;
-      }
-      if (o1.getBookName().compareTo(o2.getBookName()) > 0) {
-        return 1;
+    myBestBook.sort((o1, o2) -> {
+      if (o1.getBookName().equals(o2.getBookName())) {
+        return o1.getBookName().compareTo(o2.getBookName());
       }
       return o1.getAuthor().compareTo(o2.getAuthor());
     });
